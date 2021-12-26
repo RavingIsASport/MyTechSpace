@@ -29,7 +29,7 @@ router.get('/', async (req, res) => {
   }
 });
 
-router.get('/content/:id', async (req, res) => {
+router.get('/contents/:id', async (req, res) => {
   try {
     const contentData = await Content.findByPk(req.params.id, {
       include: [
