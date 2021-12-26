@@ -1,0 +1,51 @@
+<div class='row'>
+  <div class='col-auto'>
+    <h2>Welcome, {{name}}!</h2>
+  </div>
+</div>
+
+<div class='row mt-4'>
+  <div class='col-md-6'>
+    <h3>Add a tech post</h3>
+
+    <form class='form new-content-form'>
+      <div class='form-group'>
+        <label for='titleCon'>Title:</label>
+        <input class='form-input' type='text' id='titleCon' name='titleCon' />
+      </div>
+      <div class='form-group'>
+        <label for='contentDesc'>Content:</label>
+        <textarea
+          class='form-input'
+          id='contentDesc'
+          name='contentDesc'
+        ></textarea>
+      </div>
+      <div class='form-group'>
+        <button type='submit' class='btn btn-primary'>Create</button>
+      </div>
+    </form>
+  </div>
+
+  {{#if contentArr.length}}
+    <div class='col-md-6 content-list'>
+      <h3>Posted content:</h3>
+
+      {{#each content as |content|}}
+        <div class='row mb-2'>
+          <div class='col-md-8'>
+            <h4><a href='/content/{{content.id}}'>{{content.name}}</a></h4>
+          </div>
+          <div class='col-md-4'>
+            <button
+              class='btn btn-sm btn-danger'
+              data-id='{{content.id}}'
+            >DELETE</button>
+          </div>
+        </div>
+      {{/each}}
+    </div>
+  {{/if}}
+</div>
+
+<script src='./js/profile.js'></script>
